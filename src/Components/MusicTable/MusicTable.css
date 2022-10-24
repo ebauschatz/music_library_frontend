@@ -1,0 +1,9 @@
+.song-element {
+    border-bottom: 1px solid;
+    padding: 0.5rem;
+}
+
+.table-style {
+    text-align: left;
+    border-collapse: collapse;
+}
