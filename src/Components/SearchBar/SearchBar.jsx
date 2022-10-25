@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
+import './SearchBar.css'
 
 const SearchBar = (props) => {
     const [searchText, setSearchText] = useState ("");
+
+    function clearFilter() {
+        props.getAllSongs();
+        setSearchText("");
+    }
 
     function handleSubmit(event) {
         event.preventDefault();
@@ -9,12 +15,14 @@ const SearchBar = (props) => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="search-display">
             <div>
-                <input type="text" placeholder="Search Songs" value={searchText} onChange={(event) => setSearchText(event.target.value)}></input>
+                <input type="text" className="search-input" placeholder="Search Songs" value={searchText} onChange={(event) => setSearchText(event.target.value)}></input>
             </div>
-            <button type="submit">Search</button>
-            <button type="button" onClick={props.getAllSongs}>Clear Filter</button>
+            <div>
+                <button type="submit" className="filter-button">Search</button>
+                <button type="button" className="filter-button" onClick={clearFilter}>Clear Filter</button>
+            </div>
         </form>
     );
 }
