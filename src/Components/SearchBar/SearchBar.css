@@ -1,0 +1,13 @@
+.filter-button {
+    margin: 0rem 0.5rem;
+}
+
+.search-input {
+    margin: 0rem 1rem;
+}
+
+.search-display {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0rem;
+}

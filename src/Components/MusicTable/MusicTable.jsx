@@ -5,7 +5,6 @@ const MusicTable = (props) => {
         <table className="table-style">
             <thead>
                 <tr>
-                    <th className="song-element">ID</th>
                     <th className="song-element">Title</th>
                     <th className="song-element">Artist</th>
                     <th className="song-element">Album</th>
@@ -17,8 +16,7 @@ const MusicTable = (props) => {
             <tbody>
                 {props.songs.map((song) => {
                     return (
-                        <tr key={song.id}>
-                            <td className="song-element">{song.id}</td>
+                        <tr key={song.id} className="data-row">
                             <td className="song-element">{song.title}</td>
                             <td className="song-element">{song.artist}</td>
                             <td className="song-element">{song.album}</td>
