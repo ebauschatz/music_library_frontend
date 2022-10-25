@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import MusicTable from './Components/MusicTable/MusicTable';
 import CreateSong from './Components/CreateSong/CreateSong';
+import SearchBar from './Components/SearchBar/SearchBar';
 
 function App() {
   const [songs, setSongs] = useState([]);
@@ -22,9 +23,23 @@ function App() {
     }
   }
 
+  function filterSongs(searchTerm) {
+    let filteredSongs = songs.filter((song) => {
+      return (
+        song.title.includes(searchTerm)
+        || song.artist.includes(searchTerm)
+        || song.album.includes(searchTerm)
+        || song.genre.includes(searchTerm)
+        || song.release_date.includes(searchTerm)
+      )
+    });
+    setSongs(filteredSongs);
+  }
+
   return (
     <div>
       <CreateSong createNewSong={createNewSong}/>
+      <SearchBar filterSongs={filterSongs} getAllSongs={getAllSongs}/>
       <MusicTable songs={songs} />
     </div>
   );
