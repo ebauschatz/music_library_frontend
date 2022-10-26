@@ -50,11 +50,18 @@ function App() {
     }
   }
 
+  async function editSong(songId, updatedSong) {
+    let response = await axios.put("http://127.0.0.1:8000/api/music/" + songId + "/", updatedSong);
+    if (response.status === 200) {
+      await getAllSongs();
+    }
+  }
+
   return (
     <div>
       <CreateSong createNewSong={createNewSong}/>
       <SearchBar filterSongs={filterSongs} getAllSongs={getAllSongs}/>
-      <MusicTable songs={songs} deleteSong={deleteSong} likeSong={likeSong}/>
+      <MusicTable songs={songs} deleteSong={deleteSong} likeSong={likeSong} editSong={editSong}/>
     </div>
   );
 }
