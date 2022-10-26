@@ -1,6 +1,10 @@
 import './MusicTable.css'
 
 const MusicTable = (props) => {
+    function handleDeleteClick(id) {
+        props.deleteSong(id);
+    }
+
     return (
         <table className="table-style">
             <thead>
@@ -11,6 +15,7 @@ const MusicTable = (props) => {
                     <th className="song-element">Release Date</th>
                     <th className="song-element">Genre</th>
                     <th className="song-element">Likes</th>
+                    <th className="song-element"></th>
                 </tr>
             </thead>
             <tbody>
@@ -23,6 +28,7 @@ const MusicTable = (props) => {
                             <td className="song-element">{song.release_date}</td>
                             <td className="song-element">{song.genre}</td>
                             <td className="song-element">{song.likes}</td>
+                            <td className="song-element"><i class="fa fa-trash-o delete-icon" onClick={() => handleDeleteClick(song.id)}></i></td>
                         </tr>
                     )
                 })}
