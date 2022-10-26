@@ -16,6 +16,14 @@
     font-weight: bold;
 }
 
+.like-increment {
+    padding: 0rem 0.3rem;
+}
+
+.like-increment:hover {
+    color: green;
+}
+
 .table-style {
     text-align: left;
     border: 1px solid;

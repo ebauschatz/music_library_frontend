@@ -5,6 +5,10 @@ const MusicTable = (props) => {
         props.deleteSong(id);
     }
 
+    function handleLikeClick(id) {
+        props.likeSong(id);
+    }
+
     return (
         <table className="table-style">
             <thead>
@@ -27,8 +31,11 @@ const MusicTable = (props) => {
                             <td className="song-element">{song.album}</td>
                             <td className="song-element">{song.release_date}</td>
                             <td className="song-element">{song.genre}</td>
-                            <td className="song-element">{song.likes}</td>
-                            <td className="song-element"><i class="fa fa-trash-o delete-icon" onClick={() => handleDeleteClick(song.id)}></i></td>
+                            <td className="song-element">
+                                {song.likes}
+                                <i className="fa fa-arrow-up like-increment" onClick={() => handleLikeClick(song.id)}></i>
+                            </td>
+                            <td className="song-element"><i className="fa fa-trash-o delete-icon" onClick={() => handleDeleteClick(song.id)}></i></td>
                         </tr>
                     )
                 })}
