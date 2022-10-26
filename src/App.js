@@ -37,8 +37,15 @@ function App() {
   }
 
   async function deleteSong(songId) {
-    let response = await axios.delete("http://127.0.0.1:8000/api/music/" + songId + "/")
+    let response = await axios.delete("http://127.0.0.1:8000/api/music/" + songId + "/");
     if (response.status === 204) {
+      await getAllSongs();
+    }
+  }
+
+  async function likeSong(songId) {
+    let response = await axios.patch("http://127.0.0.1:8000/api/music/" + songId + "/like/");
+    if (response.status === 200) {
       await getAllSongs();
     }
   }
@@ -47,7 +54,7 @@ function App() {
     <div>
       <CreateSong createNewSong={createNewSong}/>
       <SearchBar filterSongs={filterSongs} getAllSongs={getAllSongs}/>
-      <MusicTable songs={songs} deleteSong={deleteSong}/>
+      <MusicTable songs={songs} deleteSong={deleteSong} likeSong={likeSong}/>
     </div>
   );
 }
