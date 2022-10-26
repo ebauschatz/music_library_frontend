@@ -16,6 +16,11 @@
     font-weight: bold;
 }
 
+.edit-icon:hover {
+    color: orange;
+    font-weight: bold;
+}
+
 .like-increment {
     padding: 0rem 0.3rem;
 }
