@@ -3,6 +3,8 @@ import axios from 'axios';
 import MusicTable from './Components/MusicTable/MusicTable';
 import CreateSong from './Components/CreateSong/CreateSong';
 import SearchBar from './Components/SearchBar/SearchBar';
+import Header from './Components/Header/Header';
+import './App.css'
 
 function App() {
   const [songs, setSongs] = useState([]);
@@ -58,7 +60,8 @@ function App() {
   }
 
   return (
-    <div>
+    <div className='app'>
+      <Header />
       <CreateSong createNewSong={createNewSong}/>
       <SearchBar filterSongs={filterSongs} getAllSongs={getAllSongs}/>
       <MusicTable songs={songs} deleteSong={deleteSong} likeSong={likeSong} editSong={editSong}/>
