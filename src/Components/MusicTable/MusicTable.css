@@ -11,6 +11,11 @@
     padding: 0.5rem;
 }
 
+.delete-icon:hover {
+    color: red;
+    font-weight: bold;
+}
+
 .table-style {
     text-align: left;
     border: 1px solid;

@@ -36,11 +36,18 @@ function App() {
     setSongs(filteredSongs);
   }
 
+  async function deleteSong(songId) {
+    let response = await axios.delete("http://127.0.0.1:8000/api/music/" + songId + "/")
+    if (response.status === 204) {
+      await getAllSongs();
+    }
+  }
+
   return (
     <div>
       <CreateSong createNewSong={createNewSong}/>
       <SearchBar filterSongs={filterSongs} getAllSongs={getAllSongs}/>
-      <MusicTable songs={songs} />
+      <MusicTable songs={songs} deleteSong={deleteSong}/>
     </div>
   );
 }
