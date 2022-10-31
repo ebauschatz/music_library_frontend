@@ -17,10 +17,10 @@ const SearchBar = (props) => {
     return (
         <form onSubmit={handleSubmit} className="search-display">
             <div>
-                <input type="text" className="search-input" placeholder="Search Songs" value={searchText} onChange={(event) => setSearchText(event.target.value)}></input>
+                <input type="text" className="search-input" placeholder="Search Songs" value={searchText} onChange={(event) => setSearchText(event.target.value)} data-cy='filter-input'></input>
             </div>
             <div>
-                <button type="submit" className="filter-button">Search</button>
+                <button type="submit" className="filter-button" data-cy="filter-button">Search</button>
                 <button type="button" className="filter-button" onClick={clearFilter}>Clear Filter</button>
             </div>
         </form>

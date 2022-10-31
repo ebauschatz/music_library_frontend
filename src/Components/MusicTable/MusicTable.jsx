@@ -43,7 +43,7 @@ const MusicTable = (props) => {
                     {props.songs.map((song) => {
                         return (
                             <tr key={song.id} className="data-row">
-                                <td className="song-element">{song.title}</td>
+                                <td className="song-element" data-cy="table-song-title">{song.title}</td>
                                 <td className="song-element">{song.artist}</td>
                                 <td className="song-element">{song.album}</td>
                                 <td className="song-element">{song.release_date}</td>
@@ -53,7 +53,7 @@ const MusicTable = (props) => {
                                     <i className="fa fa-arrow-up like-increment" onClick={() => handleLikeClick(song.id)}></i>
                                 </td>
                                 <td className="song-element"><i className="fa fa-edit edit-icon" onClick={() => handleShowEdit(song)}></i></td>
-                                <td className="song-element"><i className="fa fa-trash-o delete-icon" onClick={() => handleDeleteClick(song.id)}></i></td>
+                                <td className="song-element" data-cy="delete-button"><i className="fa fa-trash-o delete-icon" onClick={() => handleDeleteClick(song.id)}></i></td>
                             </tr>
                         )
                     })}
