@@ -45,3 +45,28 @@ describe('the delete button on a row', () => {
     cy.contains('Cypress Delete Test Song Title').should('not.exist')
   })
 })
+
+
+describe('the edit button on a row', () => {
+  before(() => {
+    cy.addSong('Cypress Edit Test Song Title')
+  })
+
+  after(() => {
+    cy.deleteSongByTitle('Cypress NEW Edit Test Song Title')
+  })
+
+  it('will allow changing the song title', () => {
+    cy.contains('Cypress Edit Test Song Title')
+      .parents('tr')
+      .find('[data-cy="edit-button"]')
+      .click()
+    cy.get('[data-cy="edit-song-title"]')
+      .clear()
+      .type('Cypress NEW Edit Test Song Title')
+    cy.get('[data-cy="save-edit-changes"]')
+      .click()
+
+    cy.contains('Cypress NEW Edit Test Song Title').should('exist')
+  })
+})

@@ -38,7 +38,7 @@ const EditSong = (props) => {
             <Modal.Body>
                 <div className="edit-body">
                     <label className="form-label">Title</label>
-                    <input type='text' value={songTitle} onChange={(event) => setSongTitle(event.target.value)}></input>
+                    <input type='text' value={songTitle} onChange={(event) => setSongTitle(event.target.value)} data-cy="edit-song-title"></input>
                 </div>
                 <div className="edit-body">
                     <label className="form-label">Album</label>
@@ -59,7 +59,7 @@ const EditSong = (props) => {
             </Modal.Body>
             <Modal.Footer>
                 <Button variant="secondary" onClick={props.handleClose}>Cancel</Button>
-                <Button variant="primary" onClick={handleSaveChanges}>Save Changes</Button>
+                <Button variant="primary" onClick={handleSaveChanges} data-cy="save-edit-changes">Save Changes</Button>
             </Modal.Footer>
         </Modal>
     );
