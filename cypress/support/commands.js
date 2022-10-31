@@ -1,25 +1,22 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+Cypress.Commands.add('deleteSongByTitle', (songTitle) => {
+    cy.contains(songTitle)
+      .parents('tr')
+      .find('[data-cy="delete-button"]')
+      .click()
+})
+
+Cypress.Commands.add('addSong', (songTitle) => {
+    cy.get('[data-cy="title-input"]')
+      .type(songTitle)
+    cy.get('[data-cy="album-input"]')
+      .type('Test Album')
+    cy.get('[data-cy="artist-input"]')
+      .type('Test Artist')
+    cy.get('[data-cy="genre-input"]')
+      .type('Test Genre')
+    cy.get('[data-cy="release-date-input"]')
+      .type('2022-10-31')
+
+    cy.get('[data-cy="create-song"]')
+      .click()
+})
