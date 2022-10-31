@@ -70,3 +70,18 @@ describe('the edit button on a row', () => {
     cy.contains('Cypress NEW Edit Test Song Title').should('exist')
   })
 })
+
+describe('POST /api/music/', () => {
+  it('adds a song', () => {
+    cy.request("POST", "http://127.0.0.1:8000/api/music/", {
+      "title": "The Drapery Falls",
+      "artist": "Opeth",
+      "album": "Blackwater Park",
+      "release_date": "2001-02-27",
+      "genre": "awesome"
+    })
+      .then((response) => {
+        expect(response.status).to.eq(201)
+      })
+  })
+})
