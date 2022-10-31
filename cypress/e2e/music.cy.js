@@ -27,9 +27,20 @@ describe('the song filter component', () => {
     cy.get('[data-cy="filter-button"]')
       .click()
     
-      cy.get('[data-cy="table-song-title"]')
-        .each(($el) => {
-          expect($el.text()).contains('Cypress Test Song Title')
-        })
+    cy.get('[data-cy="table-song-title"]')
+      .each(($el) => {
+        expect($el.text()).contains('Cypress Test Song Title')
+      })
+  })
+})
+
+describe('the delete button on a row', () => {
+  it('will remove a song', () => {
+    cy.contains('Cypress Test Song Title')
+      .parents('tr')
+      .find('[data-cy="delete-button"]')
+      .click()
+
+    cy.contains('Cypress Test Song Title').should('not.exist')
   })
 })
