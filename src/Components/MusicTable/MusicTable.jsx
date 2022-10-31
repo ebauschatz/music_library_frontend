@@ -43,7 +43,7 @@ const MusicTable = (props) => {
                     {props.songs.map((song) => {
                         return (
                             <tr key={song.id} className="data-row">
-                                <td className="song-element">{song.title}</td>
+                                <td className="song-element" data-cy="table-song-title">{song.title}</td>
                                 <td className="song-element">{song.artist}</td>
                                 <td className="song-element">{song.album}</td>
                                 <td className="song-element">{song.release_date}</td>
